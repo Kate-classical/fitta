@@ -9,22 +9,19 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
 @RestController
-@RequestMapping("/data")
+@RequestMapping("data")
 @Slf4j
 @RequiredArgsConstructor
 public class DataGraphController {
 
     private final DataGraphService dataGraphService;
 
-    @PostMapping(value = "/get", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/get", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getData(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
                                      @RequestParam(required = false) Date from,
                                      @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
@@ -34,5 +31,11 @@ public class DataGraphController {
         log.info("GET data");
         Page<DataGraphs> dataGraphs = dataGraphService.getDataGraphs(from, to , PageRequest.of(pageNumber, pageSize));
         return ResponseEntity.ok(dataGraphs);
+    }
+
+    @GetMapping(value = "/test", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> getYes() {
+        log.info("GET data");
+        return ResponseEntity.ok("yes");
     }
 }
