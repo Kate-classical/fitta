@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: ${POSTGRES_DB:jdbc:postgresql://ec2-54-72-155-238.eu-west-1.compute.amazonaws.com:5432/d1mvgk1e2vp5s4}
-    username: ${POSTGRES_USER:ubouaefkbkvlgk}
-    password: ${POSTGRES_PASSWORD:9b9a2af4e893634688c74567c1eaf8c6daa065c44e774b8327903aba8cd34e6f}
+    url: ${POSTGRES_DB:jdbc:postgresql://ec2-54-160-96-70.compute-1.amazonaws.com:5432/dc48ekmjaif6u8}
+    username: ${POSTGRES_USER:sjavsbagkgvnyz}
+    password: ${POSTGRES_PASSWORD:94090760a59b80ae663b17b7c224e708227a4eafc36c9d6cd1b0ed4415b81494}
     jpa:
       properties:
         hibernate:
