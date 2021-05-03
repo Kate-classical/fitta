@@ -1,12 +1,11 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.DataGraphs;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import com.example.demo.dto.request.DataGraphsDTO;
 
 import java.util.Date;
+import java.util.Map;
 
 public interface DataGraphService {
 
-    Page<DataGraphs> getDataGraphs(Date from, Date to, Pageable pageable);
+    Map<Date, DataGraphsDTO> getDataGraphs(Date from, Date to);
 }

@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.request.DataGraphsDTO;
 import com.example.demo.entity.DataGraphs;
 import com.example.demo.service.DataGraphService;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
+import java.util.Map;
 
 @RestController
 @RequestMapping("data")
@@ -25,12 +27,10 @@ public class DataGraphController {
     public ResponseEntity<?> getData(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
                                      @RequestParam(required = false) Date from,
                                      @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-                                     @RequestParam(required = false) Date to,
-                                     @RequestParam(required = false) Integer pageSize,
-                                     @RequestParam(required = false) Integer pageNumber) {
+                                     @RequestParam(required = false) Date to) {
         log.info("GET data");
-        Page<DataGraphs> dataGraphs = dataGraphService.getDataGraphs(from, to , PageRequest.of(pageNumber, pageSize));
-        return ResponseEntity.ok(dataGraphs);
+        Map<Date, DataGraphsDTO> dataGraphsMap = dataGraphService.getDataGraphs(from, to);
+        return ResponseEntity.ok(dataGraphsMap);
     }
 
     @GetMapping(value = "/test", produces = MediaType.APPLICATION_JSON_VALUE)
