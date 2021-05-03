@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: ${POSTGRES_DB:jdbc:postgresql://localhost:5432/fitta}
-    username: ${POSTGRES_USER:postgres}
-    password: ${POSTGRES_PASSWORD:1111}
+    url: ${POSTGRES_DB:jjdbc:postgresql://ec2-54-72-155-238.eu-west-1.compute.amazonaws.com:5432/d1mvgk1e2vp5s4}
+    username: ${POSTGRES_USER:ubouaefkbkvlgk}
+    password: ${POSTGRES_PASSWORD:9b9a2af4e893634688c74567c1eaf8c6daa065c44e774b8327903aba8cd34e6f}
     jpa:
       properties:
         hibernate:
